@@ -5,5 +5,5 @@ sudo apt-get update
 sudo apt-get install aptitude
 sudo aptitude install arandr i3 i3blocks i3lock clipit redshift feh vim lxappearance arc-theme rofi pcmanfm compton
 
-sudo cp etc/i3blocks.conf /etc/
+sudo cp /etc/i3blocks.conf /etc/
 udo cp -r src/.config /home/ablaszczyk/
