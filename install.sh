@@ -29,18 +29,30 @@ function installPrograms
    aptitude install arandr i3 i3blocks i3lock clipit redshift feh vim lxappearance arc-theme rofi pcmanfm compton xclip scrot
 }
 
+function copyMainDirectory
+{
+   echo -e $GREEN"Copying scripts and images..."$NC
+   cp -r src/art3k /usr/share/
+}
+
 function reloadConfigs
 {
    echo -e $GREEN"Reloading configs..."$NC
-   cp src/configs/i3blocks.conf /etc/
-   cp -r src/configs/i3/ ~/.config/
+   cp src/configs/bashrc/.bashrc ~/
    cp -r src/configs/clipit/ ~/.config/
+   cp -r src/configs/i3/ ~/.config/
+   cp src/configs/i3blocks/i3blocks.conf /etc/
+   cp -r src/terminator ~/.config/  
    cp src/configs/vim/.vimrc ~/
+   cp src/configs/i3blocks/volume /usr/share/i3blocks/
+   cp src/configs/i3blocsk/memory /usr/share/i3blocks/
 }
+
 
 checkPremissions
 addRepositories
 installPrograms
+copyMainDirectory
 reloadConfigs
 
-echo -e $GREEN"i3 art3k config has been instaled!"$NC
+echo -e $GREEN"\n\ni3 \"art3k\" config has been instaled!\n\n"$NC

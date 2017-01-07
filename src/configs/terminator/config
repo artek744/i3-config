@@ -1,0 +1,35 @@
+[global_config]
+  broadcast_default = off
+  geometry_hinting = False
+  handle_size = 2
+  hide_from_taskbar = True
+  inactive_color_offset = 0.6
+  suppress_multiple_term_dialog = True
+  tab_position = hidden
+  title_transmit_bg_color = "#03004f"
+[keybindings]
+  close_term = <Shift><Alt>q
+  go_next = <Primary><Shift>o
+  split_horiz = <Primary><Shift>m
+  split_vert = <Primary><Shift>n
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.94
+    background_image = None
+    background_type = transparent
+    cursor_color = "#00b5ff"
+    cursor_shape = underline
+    font = Monospace 10
+    foreground_color = "#ffffff"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
+    show_titlebar = False
