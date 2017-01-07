@@ -42,10 +42,10 @@ function reloadConfigs
    cp -r src/configs/clipit/ ~/.config/
    cp -r src/configs/i3/ ~/.config/
    cp src/configs/i3blocks/i3blocks.conf /etc/
-   cp -r src/terminator ~/.config/  
+   cp -r src/configs/terminator ~/.config/  
    cp src/configs/vim/.vimrc ~/
    cp src/configs/i3blocks/volume /usr/share/i3blocks/
-   cp src/configs/i3blocsk/memory /usr/share/i3blocks/
+   cp src/configs/i3blocks/memory /usr/share/i3blocks/
 }
 
 
