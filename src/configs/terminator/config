@@ -1,6 +1,5 @@
 [global_config]
   broadcast_default = off
-  focus = mouse
   geometry_hinting = False
   handle_size = 2
   hide_from_taskbar = True
