@@ -39,22 +39,10 @@ END {
 	if (type == "swap") {
       swap_usage = swap_total-swap_free;
 		printf("%.1fG\n", (swap_usage)/1024/1024)
-      print ""
-      if (swap_usage > swap_total * 0.25)
-         print "#ff3333"
-      else if (swap_usage > swap_total * 0.12)
-         print "#FF6600\n"
-      else
-         print "#99ff66"
    }
    else {
       mem_usage = mem_total-mem_free;
       printf("%.1f/%.1fG\n", (mem_usage)/1024/1024, mem_total/1024/1024)
-      print ""
-      if (mem_usage < mem_total*0.7)
-         print "#00FF00\n"
-      else
-         print "#FF3333\n"
    }
 }
 ' /proc/meminfo

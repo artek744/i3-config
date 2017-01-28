@@ -25,7 +25,7 @@ function installPrograms
    
    echo -e  $GREEN"Installing programs..."$NC
    apt-get install aptitude
-   aptitude install arandr i3 i3blocks i3lock clipit redshift feh vim lxappearance rofi pcmanfm compton xclip scrot terminator lm-sensors
+   aptitude install arandr i3 i3blocks i3lock clipit redshift feh vim lxappearance rofi pcmanfm compton xclip scrot terminator lm-sensors zenity
 }
 
 function copyMainDirectory
