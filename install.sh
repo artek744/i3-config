@@ -47,7 +47,7 @@ function reloadConfigs
    cp src/configs/i3blocks/memory /usr/share/i3blocks/
    cp src/configs/i3blocks/time /usr/share/i3blocks/
    cp src/configs/profile/.profile ~/
-   cp src/configs/fonts/.fonts/  ~/
+   cp -r src/configs/fonts/.fonts/  ~/
    
 }
 
