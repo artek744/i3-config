@@ -9,6 +9,5 @@ fi
 
 imgName="$(date '+%H:%M:%S')-screenshot.png"
 imgPath="$imgDirPath/$imgName"
-echo $imgName
-echo $imgPath
+
 scrot $imgPath

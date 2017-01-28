@@ -86,35 +86,50 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace2 "2: Google-chrome" 
+set $workspace1 "1: workspace" 
+set $workspace2 "2: www" 
+set $workspace3 "3: dev" 
+set $workspace4 "4: doc" 
+set $workspace5 "5: email" 
+set $workspace6 "6: workspace" 
+set $workspace7 "7: workspace" 
+set $workspace8 "8: virtual" 
+set $workspace9 "9: workspace" 
+set $workspace10 "10: files" 
 
 # switch to workspace
-bindsym $mod+1 workspace 1
+bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6  
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Google-chrome"] $workspace2
-
-# reload the configuration file
+assign [class="Firefox"] $workspace2
+assign [class="QtCreator"] $workspace3
+assign [class="Gedit"] $workspace4
+assign [class="libreoffice"] $workspace4
+assign [class="Thunderbird"] $workspace5
+assign [class="Pcmanfm"] $workspace10
+assign [class="VirtualBox"] $workspace8
+# reload the configuration fi6le
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
@@ -145,32 +160,37 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+
+
 bindsym $mod+r mode "resize"
 
-set $bg-color 			#2f343f
+set $separator-color            #00a1ff
+set $bg-color              #000000
+set $active-bg-color       #001f6d
 set $inactive-bg-color 		#2f343f
-set $text-color 		#fafafa
-set $incative-text-color 	#676E7D
+set $text-color 		      #fafafa
+set $inactive-text-color 	#676E7D
 set $urgent-bg-color 		#c00000
 
-client.focused 		$bg-color 		$bg-color		$text-color 		$bg-color
-client.unfocused 	$inactive-bg-color 	$inactive-bg-color 	$incative-text-color  	$bg-color
-client.focused_inactive $inactive-bg-color 	$inactive-bg-color 	$incative-text-color  	$bg-color
-client.urgent 		$urgent-bg-color 	$urgent-bg-color 	$text-color 		$bg-color
-
+client.focused 		      $bg-color 		      $bg-color		      $separator-color 		   $bg-color
+client.unfocused 	         $bg-color 	         $bg-color 	         $inactive-text-color  	$bg-color
+client.focused_inactive    $bg-color 	         $bg-color 	         $inactive-text-color  	$bg-color
+client.urgent 		         $urgent-bg-color 	   $urgent-bg-color 	   $text-color 		      $bg-color
+client.unfocused           $bg-color            $bg-color            $inactive-text-color    $bg-color
 hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks 
-        tray_output primary
+   status_command i3blocks
+   tray_output primary
 	colors {
-		background $bg-color
-		separator #757575
-		focused_workspace	$bg-color 		$bg-color		$text-color
-		inactive_workspace	$inactive-bg-color 	$inactive-bg-color 	$incative-text-color
-		urgent_workspace	$urgent-bg-color 	$urgent-bg-color 	$text-color
+      statusline  $separator-color
+	   background  $bg-color
+		separator   $separator-color
+		focused_workspace	   $separator-color 	   $active-bg-color		$text-color
+		inactive_workspace	$bg-color 	         $bg-color 	         $inactive-text-color
+		urgent_workspace	   $urgent-bg-color 	   $urgent-bg-color 	   $text-color  
 	}
 }
 

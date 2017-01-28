@@ -1,5 +1,6 @@
 [global_config]
   broadcast_default = off
+  focus = mouse
   geometry_hinting = False
   handle_size = 2
   hide_from_taskbar = True
@@ -24,12 +25,13 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.94
+    background_darkness = 0.83
     background_image = None
     background_type = transparent
     cursor_color = "#00b5ff"
     cursor_shape = underline
     font = Monospace 10
     foreground_color = "#ffffff"
+    icon_bell = False
     palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
     show_titlebar = False

@@ -15,8 +15,7 @@ function checkPremissions
 function addRepositories
 {
    echo -e $GREEN"Adding repositories..."$NC
-   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-   sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' > /etc/apt/sources.list.d/arc-theme.list"
+
 }
 
 function installPrograms
@@ -26,7 +25,7 @@ function installPrograms
    
    echo -e  $GREEN"Installing programs..."$NC
    apt-get install aptitude
-   aptitude install arandr i3 i3blocks i3lock clipit redshift feh vim lxappearance arc-theme rofi pcmanfm compton xclip scrot terminator
+   aptitude install arandr i3 i3blocks i3lock clipit redshift feh vim lxappearance rofi pcmanfm compton xclip scrot terminator lm-sensors
 }
 
 function copyMainDirectory
@@ -46,6 +45,8 @@ function reloadConfigs
    cp src/configs/vim/.vimrc ~/
    cp src/configs/i3blocks/volume /usr/share/i3blocks/
    cp src/configs/i3blocks/memory /usr/share/i3blocks/
+   cp src/configs/profile/.profile ~/
+   cp src/configs/fonts/.fonts/  ~/
 }
 
 
