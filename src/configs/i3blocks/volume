@@ -61,8 +61,7 @@ format() {
 #------------------------------------------------------------------------
 
 case $BLOCK_BUTTON in
-  3) sink=$(pactl list short sinks | grep RUNNING | cut -f1)
-     pactl set-sink-mute $sink toggle;;  # right click, mute/unmute
+  3) pactl set-sink-mute 0 toggle;; # right click, mute/unmute
   4) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}+ unmute ;; # scroll up, increase
   5) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}- unmute ;; # scroll down, decrease
 esac

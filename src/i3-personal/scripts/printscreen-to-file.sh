@@ -2,7 +2,7 @@
 
 date=$(date '+%d-%m-%Y')
 imgDir="$date-screenshot"
-imgDirPath="$HOME/Pictures/$imgDir"
+imgDirPath="$HOME/Documents/$imgDir"
 if [ ! -d $imgDirPath ]; then
    mkdir $imgDirPath
 fi
