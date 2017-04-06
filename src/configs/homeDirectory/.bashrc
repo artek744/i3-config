@@ -8,37 +8,31 @@ case $- in
       *) return;;
 esac
 
-Red='\033[0;91m'          # Red
-Green='\033[0;32m'        # Green
-Blue='\e[96m'             # Blue
-White='\033[0;37m'        # White
-
 function git_status ()
 {
+   git_stat=""
+   color='\033[0;91m'
+   sign="##"
+ 
    local STATUS=$(git status 2>&1)
-   if [[ "$STATUS" == *'Not a git repository'* ]]; then
-      return
-   elif [[ "$STATUS" == *'working directory clean'* ]]; then
-      return
+  
+   if [[ "$STATUS" == *"use \"git push\""* ]]; then
+      git_stat=$color$sign
    fi
-   
-   git_stat="~"
 
    if [[ "$STATUS" == *'Untracked files'* ]]; then
-      git_stat+=$Red"##" 
+      git_stat=$color$sign
    fi
 
    if [[ "$STATUS" == *'Changes not staged for commit'* ]]; then
-      git_stat+=$Blue"##"
+      git_stat=$color$sign
    fi
    
    if [[ "$STATUS" == *'Changes to be committed'* ]]; then
-      git_stat+=$Green"##"
+      git_stat=$color$sign
    fi
 
-   echo -e $git_stat" "
-
-
+   echo -e $git_stat
 }
 
 # don't put duplicate lines or lines starting with space in the history.
