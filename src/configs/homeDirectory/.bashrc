@@ -8,6 +8,8 @@ case $- in
       *) return;;
 esac
 
+
+# When git repository has been modifiedi, it will notifie
 function git_status ()
 {
    git_stat=""
@@ -34,6 +36,10 @@ function git_status ()
 
    echo -e $git_stat
 }
+
+# Software Flow Control
+# Not to be disturbed by Ctrl-S ctrl-Q in terminals:
+stty -ixon
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
