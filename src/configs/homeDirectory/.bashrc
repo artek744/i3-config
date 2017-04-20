@@ -33,8 +33,12 @@ function git_status ()
    if [[ "$STATUS" == *'Changes to be committed'* ]]; then
       git_stat=$color$sign
    fi
-
-   echo -e $git_stat
+	
+	if [[ "$STATUS" == *'no changes added to commit'* ]]; then
+      git_stat=$color$sign
+   fi
+   
+	echo -e $git_stat
 }
 
 # Software Flow Control
