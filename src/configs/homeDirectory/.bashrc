@@ -8,39 +8,6 @@ case $- in
       *) return;;
 esac
 
-
-# When git repository has been modifiedi, it will notifie
-function git_status ()
-{
-   git_stat=""
-   color='\033[0;91m'
-   sign="##"
- 
-   local STATUS=$(git status 2>&1)
-  
-   if [[ "$STATUS" == *"use \"git push\""* ]]; then
-      git_stat=$color$sign
-   fi
-
-   if [[ "$STATUS" == *'Untracked files'* ]]; then
-      git_stat=$color$sign
-   fi
-
-   if [[ "$STATUS" == *'Changes not staged for commit'* ]]; then
-      git_stat=$color$sign
-   fi
-   
-   if [[ "$STATUS" == *'Changes to be committed'* ]]; then
-      git_stat=$color$sign
-   fi
-	
-	if [[ "$STATUS" == *'no changes added to commit'* ]]; then
-      git_stat=$color$sign
-   fi
-   
-	echo -e $git_stat
-}
-
 # Software Flow Control
 # Not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
@@ -92,6 +59,13 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
+
+function git_status()
+{
+
+	git_status_signs=`/usr/share/i3-personal/scripts/get-git-status-sign.sh`
+	echo -e '\033[0;91m'$git_status_signs
+}
 
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[01;33m\]$(__git_ps1)\[$(git_status)\]\[\033[00m\]\$ '

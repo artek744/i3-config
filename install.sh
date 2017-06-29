@@ -6,8 +6,8 @@ scriptPath=$(cd "$(dirname "$0")" && pwd)
 
 function updateRepositories
 {
-   echo -e $GREEN"Updating repositories..."$NC 
-   sudo apt-get update 
+   echo -e $GREEN"Updating repositories..."$NC
+   sudo apt-get update
 }
 
 function installPrograms
@@ -26,8 +26,8 @@ function copyMainDirectory
 function deployConfigs
 {
    echo -e $GREEN"Deploying configs..."$NC
-   cp -R src/configs/homeDirectory/.  ~/      
-   $scriptPath/src/configs/i3blocks/deploy-i3blocks.sh  
+   cp -R src/configs/homeDirectory/.  ~/
+   $scriptPath/src/configs/i3blocks/deploy-i3blocks.sh
 }
 
 updateRepositories
