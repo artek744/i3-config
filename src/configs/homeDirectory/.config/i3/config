@@ -121,47 +121,47 @@ bindsym $mod+Shift+Control+Right move workspace to output right
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-	# These bindings trigger as soon as you enter the resize mode
-	bindsym Left resize shrink width 10 px or 10 ppt		# Pressing left will shrink the window’s width.
-	bindsym Down resize grow height 10 px or 10 ppt		# Pressing right will grow the window’s width.
-	bindsym Up resize shrink height 10 px or 10 ppt		# Pressing up will shrink the window’s height.
-	bindsym Right resize grow width 10 px or 10 ppt		 # Pressing down will grow the window’s height.
+   # These bindings trigger as soon as you enter the resize mode
+   bindsym Left resize shrink width 10 px or 10 ppt      # Pressing left will shrink the window’s width.
+   bindsym Down resize grow height 10 px or 10 ppt       # Pressing right will grow the window’s width.
+   bindsym Up resize shrink height 10 px or 10 ppt       # Pressing up will shrink the window’s height.
+   bindsym Right resize grow width 10 px or 10 ppt       # Pressing down will grow the window’s height.
 
-	# back to normal: Enter or Escape
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
+   # back to normal: Enter or Escape
+   bindsym Return mode "default"
+   bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
-set $separator-color			#00a1ff
-set $bg-color					#000000
-set $active-bg-color			#001f6d
-set $inactive-bg-color		#2f343f
-set $text-color				#fafafa
-set $inactive-text-color	#676E7D
-set $urgent-bg-color			#c00000
+set $separator-color       #00a1ff
+set $bg-color              #000000
+set $active-bg-color       #001f6d
+set $inactive-bg-color     #2f343f
+set $text-color            #fafafa
+set $inactive-text-color   #676E7D
+set $urgent-bg-color       #c00000
 
-client.focused					$bg-color				$bg-color				$separator-color			$bg-color
-client.unfocused				$bg-color				$bg-color				$inactive-text-color		$bg-color
-client.focused_inactive		$bg-color				$bg-color				$inactive-text-color		$bg-color
-client.urgent					$urgent-bg-color		$urgent-bg-color 	   $text-color					$bg-color
-client.unfocused				$bg-color				$bg-color				$inactive-text-color		$bg-color
+client.focused             $bg-color            $bg-color            $separator-color        $bg-color
+client.unfocused           $bg-color            $bg-color            $inactive-text-color    $bg-color
+client.focused_inactive    $bg-color            $bg-color            $inactive-text-color    $bg-color
+client.urgent              $urgent-bg-color     $urgent-bg-color     $text-color             $bg-color
+client.unfocused           $bg-color            $bg-color            $inactive-text-color    $bg-color
 hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3blocks
 # finds out, if available)
 bar {
-	status_command i3blocks
-	tray_output primary
-	colors {
-		statusline	$separator-color
-		background	$bg-color
-		separator	$separator-color
-		focused_workspace		$separator-color		$active-bg-color		$text-color
-		inactive_workspace	$bg-color				$bg-color				$inactive-text-color
-		urgent_workspace		$urgent-bg-color		$urgent-bg-color		$text-color
-	}
+   status_command i3blocks
+   tray_output primary
+   colors {
+      statusline	$separator-color
+      background	$bg-color
+      separator	$separator-color
+      focused_workspace    $separator-color     $active-bg-color     $text-color
+      inactive_workspace   $bg-color            $bg-color            $inactive-text-color
+      urgent_workspace     $urgent-bg-color     $urgent-bg-color     $text-color
+   }
 }
 
 # screen settings

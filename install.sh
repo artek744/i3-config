@@ -8,11 +8,11 @@ scriptPath=$(cd "$(dirname "$0")" && pwd)
 
 function installPrograms
 {
-	echo -e $CYAN"\nUpdating repositories..."$NC
-	sudo apt-get update
+   echo -e $CYAN"\nUpdating repositories..."$NC
+   sudo apt-get update
 
-	echo -e  $CYAN"\nInstalling programs..."$NC
-	sudo apt-get  install aptitude arandr i3 i3blocks i3lock clipit redshift feh vim lxappearance rofi pcmanfm compton xclip scrot terminator lm-sensors zenity pactl amixer
+   echo -e $CYAN"\nInstalling programs..."$NC
+   sudo apt-get install aptitude arandr i3 i3blocks i3lock clipit redshift feh vim lxappearance rofi pcmanfm compton xclip scrot terminator lm-sensors zenity pactl amixer
 }
 
 function copyMainDirectory
