@@ -4,7 +4,7 @@ function print_git_status_sign ()
 {
 	git_status_signs=""
 	modified_sign="#"
-	untracked_files_sign="U"
+	untracked_files_sign="u"
 
 	if ! git rev-parse --git-dir > /dev/null 2>&1; then
 		return
