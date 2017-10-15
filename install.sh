@@ -1,24 +1,56 @@
 #!/bin/bash
 
 GREEN="\e[32m"
-CYAN="\033[0;96m"
+CYAN="\e[0;96m"
+RED="\e[31m"
 NC="\e[39m"
 
 scriptPath=$(cd "$(dirname "$0")" && pwd)
+basicPrograms="i3 i3blocks i3lock feh rofi pcmanfm compton lm-sensors xclip scrot zenity"
+additionalPrograms="aptitude arandr clipit redshift vim lxappearance pcmanfm terminator"
 
-function installPrograms
+function checkMethodStatus
+{
+	if [ $? -ne 0 ]; then
+		echo -e $RED"\nInstalation has failed!\n"
+		exit 1
+	fi
+}
+
+function updateRepositories
 {
    echo -e $CYAN"\nUpdating repositories..."$NC
    sudo apt-get update
+}
 
+function installPrograms
+{
    echo -e $CYAN"\nInstalling programs..."$NC
-   sudo apt-get install aptitude arandr i3 i3blocks i3lock clipit redshift feh vim lxappearance rofi pcmanfm compton xclip scrot terminator lm-sensors zenity pactl amixer
+   sudo apt-get install $@
+	checkMethodStatus
+}
+
+function installAdditionalPrograms
+{
+	while true
+	do
+		echo ""
+		read -r -p "Do you want to install additional programs? [y/n] " choice
+		case "$choice" in
+			n|N)	break;;
+			y|Y)
+               installPrograms $additionalPrograms
+					break;;
+			*) echo 'Response not valid';;
+		esac
+	done
 }
 
 function copyMainDirectory
 {
    echo -e $CYAN"\nCopying scripts and images..."$NC
    sudo cp -r src/i3-personal /usr/share/
+	checkMethodStatus
 }
 
 function deployConfigs
@@ -26,10 +58,18 @@ function deployConfigs
    echo -e $CYAN"\nDeploying configs..."$NC
    cp -R src/configs/homeDirectory/.  ~/
    $scriptPath/src/configs/i3blocks/deploy-i3blocks.sh
+	checkMethodStatus
 }
 
-installPrograms
-copyMainDirectory
-deployConfigs
+function main
+{
+   updateRepositories
+   installPrograms $basicPrograms
+   installAdditionalPrograms
+   copyMainDirectory
+   deployConfigs
 
-echo -e $GREEN"\n\ni3 \"art3k\" config has been instaled!\n\n"$NC
+   echo -e $GREEN"\n\ni3 \"art3k\" config has been instaled!\n\n"$NC
+}
+
+main
