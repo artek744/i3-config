@@ -171,7 +171,7 @@ exec xrandr --output VIRTUAL1 --off --output DP1 --off --output HDMI1 --mode 192
 exec nm-applet
 
 # program is responsible for manage screen brigthness related to time
-exec redshift
+exec redshift-gtk -l 53.5:14.5
 
 # clipboard manager
 exec clipit

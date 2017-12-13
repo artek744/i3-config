@@ -7,7 +7,7 @@ NC="\e[39m"
 
 scriptPath=$(cd "$(dirname "$0")" && pwd)
 basicPrograms="i3 i3blocks i3lock feh rofi pcmanfm compton lm-sensors xclip scrot zenity"
-additionalPrograms="aptitude arandr clipit redshift vim lxappearance pcmanfm terminator"
+additionalPrograms="aptitude arandr clipit redshift-gtk vim vim-gnom lxappearance pcmanfm terminator"
 
 function checkMethodStatus
 {

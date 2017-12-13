@@ -21,3 +21,5 @@
 # Install and configure xbacklight
 
 # Background and border color for the individual blocks in i3bar
+
+# Way to install external programs from git etc.
