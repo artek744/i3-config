@@ -6,7 +6,7 @@ RED="\e[31m"
 NC="\e[39m"
 
 scriptPath=$(cd "$(dirname "$0")" && pwd)
-basicPrograms="i3 i3blocks i3lock feh rofi pcmanfm compton lm-sensors xclip scrot zenity aptitude arandr clipit redshift-gtk lxappearance terminator"
+basicPrograms="i3 i3blocks i3lock feh rofi pcmanfm compton lm-sensors xclip scrot zenity aptitude arandr copyq redshift-gtk lxappearance terminator"
 
 function checkMethodStatus
 {
@@ -16,42 +16,34 @@ function checkMethodStatus
 	fi
 }
 
-function updateRepositories
+function installPrograms
 {
    echo -e $CYAN"\nUpdating repositories..."$NC
    sudo apt-get update
-}
 
-function installPrograms
-{
-   echo -e $CYAN"\nInstalling programs..."$NC
+	echo -e $CYAN"\nInstalling programs..."$NC
    sudo apt-get install $@
 	checkMethodStatus
 }
 
-function copyMainDirectory
+function deployFilesAndDirs
 {
-   echo -e $CYAN"\nCopying scripts and images..."$NC
-   sudo cp -r src/i3-personal /usr/share/
-	checkMethodStatus
-}
+   echo -e $CYAN"\nDeploying files and dirs..."$NC
+   sudo ln -fs $scriptPath/src/i3-personal /usr/share/
 
-function deployConfigs
-{
-   echo -e $CYAN"\nDeploying configs..."$NC
-   cp -R src/configs/homeDirectory/.  ~/
-   $scriptPath/src/configs/i3blocks/deploy-i3blocks.sh
+	$scriptPath/src/configs/home_config/deploy_home_config.sh
+	checkMethodStatus
+
+	$scriptPath/src/configs/i3blocks_config/deploy_i3blocks.sh
 	checkMethodStatus
 }
 
 function main
 {
-   updateRepositories
-   installPrograms $basicPrograms
-   copyMainDirectory
-   deployConfigs
+	installPrograms $basicPrograms
+	deployFilesAndDirs
 
-   echo -e $GREEN"\n\ni3-config has been instaled!\n\n"$NC
+   echo -e $GREEN"\ni3-config has been instaled!\n"$NC
 }
 
 main

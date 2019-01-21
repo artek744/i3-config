@@ -185,7 +185,9 @@ exec nm-applet
 exec redshift-gtk -l 53.5:14.5
 
 # clipboard manager
-exec clipit
+exec copyq
+for_window [class="copyq"] floating enable
+for_window [class="copyq"] resize set 600 1000
 
 # sets background
 exec_always feh --bg-scale /usr/share/i3-personal/images/wallpaper.png

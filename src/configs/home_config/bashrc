@@ -126,3 +126,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# load personal bashrc configs
+BASHRC_CONFIGS="$(ls -1 ~/.bashrc_configs)"
+for file in $BASHRC_CONFIGS; do
+	source ~/.bashrc_configs/$file
+done
