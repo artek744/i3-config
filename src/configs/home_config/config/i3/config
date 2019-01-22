@@ -1,6 +1,4 @@
 # -----------------------------------------------
-# ------------------ i3 config ------------------
-# -----------------------------------------------
 
 set $mod Mod4
 set $alt Mod1
@@ -25,7 +23,9 @@ bindsym Print exec scrot ~/image-tmp.png && xclip -selection clipboard -t image/
 bindsym $mod+Print exec /usr/share/i3-personal/scripts/printscreen-to-file.sh
 
 # start rofi (a program launcher)
-bindsym $mod+d exec rofi -show run -width 800 -lines 10 -fg "$text-color" -bg "#101010" -bc "$bg-color" -hlfg "#8bf3ff" -hlbg "#001f6d" -padding  20 -separator-style "solid" -hide-scrollbar -font "System FreeSans 12" -opacity 80
+# bindsym $mod+d exec rofi -show run -width 800 -lines 10 -fg "$text-color" -bg "#101010" -bc "$bg-color" -hlfg "#8bf3ff" -hlbg "#001f6d" -padding  20 -separator-style "solid" -hide-scrollbar -font "System FreeSans 12" -opacity 80
+bindsym $mod+d exec rofi -show run -theme config
+
 
 # change focus. Alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left

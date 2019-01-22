@@ -24,6 +24,9 @@ sudo ln -fs $configPath/config/copyq ~/.config/
 rm -rf ~/.config/terminator
 sudo ln -fs $configPath/config/terminator ~/.config/
 
+rm -rf ~/.config/rofi
+sudo ln -fs $configPath/config/rofi ~/.config/
+
 
 ### FONTS DIR ###
 rm -rf ~/.fonts
