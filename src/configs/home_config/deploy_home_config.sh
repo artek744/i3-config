@@ -11,7 +11,7 @@ sudo ln -sf $configPath/bashrc ~/.bashrc
 
 
 ### BASHRC CONFIG DIR ###
-sudo ln -sf $configPath/bashrc_configs ~/.bashrc_configs
+sudo ln -sfT $configPath/bashrc_configs ~/.bashrc_configs
 
 
 ### CONFIG DIR  ###

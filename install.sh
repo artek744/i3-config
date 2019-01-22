@@ -18,6 +18,10 @@ function checkMethodStatus
 
 function installPrograms
 {
+   echo -e $CYAN"\nAdding PPAs..."$NC
+	sudo add-apt-repository ppa:hluk/copyq
+	sudo add-apt-repository ppa:jasonpleau/rofi
+
    echo -e $CYAN"\nUpdating repositories..."$NC
    sudo apt-get update
 
