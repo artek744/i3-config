@@ -102,12 +102,7 @@ assign [class="google-chrome"] $workspace2
 assign [class="Google-chrome"] $workspace2
 assign [class="Firefox"] $workspace2
 assign [class="QtCreator"] $workspace3
-assign [class="Kile"] $workspace3
-assign [class="Gedit"] $workspace4
-assign [class="libreoffice"] $workspace4
-assign [class="Thunderbird"] $workspace5
-assign [class="Pcmanfm"] $workspace10
-assign [class="VirtualBox"] $workspace8
+
 # reload the configuration fi6le
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
