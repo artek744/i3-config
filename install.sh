@@ -6,7 +6,7 @@ RED="\e[31m"
 NC="\e[39m"
 
 scriptPath=$(cd "$(dirname "$0")" && pwd)
-basicPrograms="i3 i3blocks i3lock feh rofi pcmanfm compton lm-sensors xclip scrot zenity aptitude arandr copyq redshift-gtk lxappearance terminator"
+basicPrograms="i3 i3blocks i3lock feh rofi pcmanfm compton lm-sensors xclip scrot zenity arandr copyq redshift-gtk lxappearance terminator doublecmd-gtk"
 
 function checkMethodStatus
 {
