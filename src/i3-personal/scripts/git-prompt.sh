@@ -31,7 +31,7 @@ set-prompt()
 
 	if [[ ! $git_status == "" ]]; then
 
-		if [[ $git_status =~ ($'\n'|^)A ]]; then
+		if [[ $git_status =~ ($'\n'|^)A|($'\n'|^)D|($'\n'|^)R ]]; then
 			git_prompt+=${SIGN_COLOR}" ☻"${NC}
 		fi
 
