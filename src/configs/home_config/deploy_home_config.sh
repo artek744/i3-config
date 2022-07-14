@@ -7,12 +7,7 @@ configPath=$(cd "$(dirname "$0")" && pwd)
 echo -e $CYAN"\nDeploying home configs..."$NC
 
 ### BASHRC FILE ###
-sudo ln -sf $configPath/bashrc ~/.bashrc
-
-
-### BASHRC CONFIG DIR ###
-sudo ln -sfT $configPath/bashrc_configs ~/.bashrc_configs
-
+echo "source $configPath/bashrc" >> ~/.bashrc
 
 ### CONFIG DIR  ###
 rm -rf ~/.config/i3
@@ -27,12 +22,6 @@ sudo ln -fs $configPath/config/terminator ~/.config/
 rm -rf ~/.config/rofi
 sudo ln -fs $configPath/config/rofi ~/.config/
 
-
 ### FONTS DIR ###
 rm -rf ~/.fonts
 sudo ln -fs $configPath/fonts ~/.fonts
-
-
-### PROFILE FILE ###
-rm -rf ~/.profile
-sudo ln -fs $configPath/profile ~/.profile

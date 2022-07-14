@@ -10,44 +10,40 @@ basicPrograms="i3 i3blocks i3lock feh rofi pcmanfm compton lm-sensors xclip scro
 
 function checkMethodStatus
 {
-	if [ $? -ne 0 ]; then
-		echo -e $RED"\nInstalation has failed!\n"
-		exit 1
-	fi
+    if [ $? -ne 0 ]; then
+        echo -e $RED"\nInstalation has failed!\n"
+        exit 1
+    fi
 }
 
 function installPrograms
 {
-   echo -e $CYAN"\nAdding PPAs..."$NC
-	sudo add-apt-repository ppa:hluk/copyq
-	sudo add-apt-repository ppa:jasonpleau/rofi
+    echo -e $CYAN"\nUpdating repositories..."$NC
+    sudo apt-get update
 
-   echo -e $CYAN"\nUpdating repositories..."$NC
-   sudo apt-get update
-
-	echo -e $CYAN"\nInstalling programs..."$NC
-   sudo apt-get install $@
-	checkMethodStatus
+    echo -e $CYAN"\nInstalling programs..."$NC
+    sudo apt-get install $@
+    checkMethodStatus
 }
 
 function deployFilesAndDirs
 {
-   echo -e $CYAN"\nDeploying files and dirs..."$NC
-   sudo ln -fs $scriptPath/src/i3-personal /usr/share/
+    echo -e $CYAN"\nDeploying files and dirs..."$NC
+    sudo ln -fs $scriptPath/src/i3-personal /usr/share/
 
-	$scriptPath/src/configs/home_config/deploy_home_config.sh
-	checkMethodStatus
+    $scriptPath/src/configs/home_config/deploy_home_config.sh
+    checkMethodStatus
 
-	$scriptPath/src/configs/i3blocks_config/deploy_i3blocks.sh
-	checkMethodStatus
+    $scriptPath/src/configs/i3blocks_config/deploy_i3blocks.sh
+    checkMethodStatus
 }
 
 function main
 {
-	installPrograms $basicPrograms
-	deployFilesAndDirs
+    installPrograms $basicPrograms
+    deployFilesAndDirs
 
-   echo -e $GREEN"\ni3-config has been instaled!\n"$NC
+    echo -e $GREEN"\ni3-config has been instaled!\n"$NC
 }
 
 main
