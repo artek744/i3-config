@@ -22,6 +22,9 @@ sudo ln -fs $configPath/config/terminator ~/.config/
 rm -rf ~/.config/rofi
 sudo ln -fs $configPath/config/rofi ~/.config/
 
+rm -rf ~/.config/dunst
+sudo ln -fs $configPath/config/dunst ~/.config/
+
 ### FONTS DIR ###
 rm -rf ~/.fonts
 sudo ln -fs $configPath/fonts ~/.fonts
